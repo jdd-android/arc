@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.jdd.sample.wb.common.utils.DateUtils" />
+
+        <variable
+            name="item"
+            type="com.jdd.sample.wb.api.bean.PostItem" />
+
+        <variable
+            name="postClickCallback"
+            type="com.jdd.sample.wb.common.PostItemOnClickCallback" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/spaceMicro"
+        android:layout_marginTop="@dimen/spaceMicro"
+        android:background="@color/white"
+        android:foreground="?attr/selectableItemBackground"
+        android:onClick="@{()->postClickCallback.onPostClick(item)}"
+        android:padding="@dimen/spaceNormal">
+
+        <ImageView
+            android:id="@+id/iv_avatar"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            app:imageUrl="@{item.userInfo.avatar}" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/iv_avatar"
+            android:layout_marginLeft="@dimen/spaceMedium"
+            android:layout_toRightOf="@id/iv_avatar"
+            android:gravity="top"
+            android:text="@{item.userInfo.nickName}"
+            android:textColor="@color/colorTextPrimary"
+            android:textSize="@dimen/textSizeMedium"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/iv_avatar"
+            android:layout_marginLeft="@dimen/spaceMedium"
+            android:layout_toRightOf="@id/iv_avatar"
+            android:text="@{DateUtils.readableDate(item.createAt)}"
+            android:textColor="@color/colorTextSecondary"
+            android:textSize="@dimen/textSizeSmall" />
+
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iv_avatar"
+            android:layout_marginTop="@dimen/spaceMedium"
+            android:text="@{item.text}"
+            android:textColor="@color/colorTextPrimary"
+            android:textSize="@dimen/textSizeMedium" />
+
+        <LinearLayout
+            android:id="@+id/ly_repost_origin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_content"
+            android:layout_marginLeft="@dimen/spaceSmall"
+            android:layout_marginRight="@dimen/spaceSmall"
+            android:layout_marginTop="@dimen/spaceSmall"
+            android:background="@color/colorRepostOriginBackground"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/spaceMicro">
+
+            <TextView
+                android:id="@+id/tv_origin_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/iv_avatar"
+                android:layout_marginTop="@dimen/spaceMedium"
+                android:text="@{item.rePostOrigin.text}"
+                android:textColor="@color/colorTextPrimary"
+                android:textSize="@dimen/textSizeMedium" />
+
+            <com.jdd.sample.wb.customview.FigureCaptionView
+                android:id="@+id/figure_caption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_content"
+                android:layout_marginTop="@dimen/spaceMedium" />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+</layout>
