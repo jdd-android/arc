@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">WB</string>
+
+    <string name="countFormat">%s秒</string>
 </resources>

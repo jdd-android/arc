@@ -1,9 +1,12 @@
 package com.jdd.sample.wb.module.home;
 
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentManager;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.jdd.sample.wb.R;
@@ -12,6 +15,7 @@ import com.jdd.sample.wb.databinding.ActivityMainBinding;
 import com.jdd.sample.wb.eventbus.EventAuthReturn;
 import com.jdd.sample.wb.eventbus.EventUserInfoRefresh;
 import com.jdd.sample.wb.module.base.BaseActivity;
+import com.jdd.sample.wb.module.debug.DebugActivity;
 import com.jdd.sample.wb.module.user.AuthManager;
 import com.jdd.sample.wb.module.user.User;
 
@@ -57,6 +61,24 @@ public class HomeActivity extends BaseActivity {
     protected void onDestroy() {
         EventBus.getDefault().unregister(this);
         super.onDestroy();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_home, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_debug:
+                startActivity(new Intent(this, DebugActivity.class));
+                return true;
+            default:
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     ///////////////////////////////////////////////////////////////////////////
