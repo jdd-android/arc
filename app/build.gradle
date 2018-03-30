@@ -54,6 +54,7 @@ dependencies {
     implementation "com.android.support:appcompat-v7:$appcompatVersion"
     implementation "com.android.support:recyclerview-v7:$appcompatVersion"
     implementation "com.android.support:design:$appcompatVersion"
+    implementation "com.android.support:support-v4:$appcompatVersion"
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     implementation 'org.greenrobot:eventbus:3.1.1'
     implementation 'com.squareup.retrofit2:retrofit:2.4.0'

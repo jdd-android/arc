@@ -15,7 +15,7 @@ import com.jdd.sample.wb.databinding.ActivityMainBinding;
 import com.jdd.sample.wb.eventbus.EventAuthReturn;
 import com.jdd.sample.wb.eventbus.EventUserInfoRefresh;
 import com.jdd.sample.wb.module.base.BaseActivity;
-import com.jdd.sample.wb.module.debug.DebugActivity;
+import com.jdd.sample.wb.module.common.ImageDisplayActivity;
 import com.jdd.sample.wb.module.user.AuthManager;
 import com.jdd.sample.wb.module.user.User;
 
@@ -73,7 +73,7 @@ public class HomeActivity extends BaseActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_debug:
-                startActivity(new Intent(this, DebugActivity.class));
+                startActivity(new Intent(this, ImageDisplayActivity.class));
                 return true;
             default:
                 break;
